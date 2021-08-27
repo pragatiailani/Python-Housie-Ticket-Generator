@@ -1,0 +1,5 @@
+There are 3 rows and 9 columns in a Housie ticket.
+Every row contains 5 numbers.
+Every column contains minimum 1 and maximum 3 numbers.
+The numbers in a column should be in ascending order.
+It contains total 15 numbers.
