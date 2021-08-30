@@ -25,43 +25,35 @@ def ticket():
                 a=random.randint(1,9)
                 if (a+(i*10)) in temp: # If the value is already present in that column, change the value 
                     while (a+(i*10)) in temp:
-                        a=random.randint(1,9)
+                        if i<8:
+                            a=random.randint(1,9)
+                        elif i==8:
+                            a=random.randint(1,10) #Because in last column there is possibility of 11 numbers i.e. 80-90  
                 temp.append((a+(i*10)))
                 rowcount[j]+=1
     
         x.append(temp)
-        #print(temp)
-
+       
     #Until I get 5 numbers in each row...
     while rowcount!=[5,5,5]:
         for i in range(0,3):
 
             #If there are more than 5 numbers then remove the number
             if rowcount[i]>5:
-                #print("Condition is running")
                 a=random.randint(0,8)
                 if i==0:
-                    #print('Condition 1 ')
                     while (x[a][i]==0) or (x[a][i+1]==0 and x[a][i+2]==0):
-                        #print('Condition 1 ',a)
                         a=random.randint(0,8)
                         
                 elif i==1:
-                    #print('Condition 2 ')
                     while (x[a][i]==0) or (x[a][i-1]==0 and x[a][i+1]==0):
-                        #print('Condition 2 ',a)
                         a=random.randint(0,8)
                         
                 elif i==2:
-                    #print('Condition 3 ')
                     while (x[a][i]==0) or (x[a][i-1]==0 and x[a][i-2]==0):
-                        #print('Condition 3 ',a)
                         a=random.randint(0,8)
-                        
-                        
 
                 x[a][i]=0
-
                 rowcount[i]-=1
 
             #If there are less than 5 numbers then add a number    
@@ -79,7 +71,6 @@ def ticket():
                         num=random.randint(1,9)
 
                 x[a][i]= (num+(a*10))
-
                 rowcount[i]+=1
 
 
@@ -101,10 +92,11 @@ def ticket():
         print()
     
     
-
+#Input the number of tickets
 n=int(input("Enter the number of tickets you want: "))
 print()
 
+#Printing Tickets for user
 for yellow in range(0,n):
     deco()
     print()
@@ -115,8 +107,3 @@ for yellow in range(0,n):
     deco()
     print()
     print()
-
-
-'''
-Check if all numbers are coming...
-'''
